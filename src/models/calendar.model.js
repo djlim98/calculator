@@ -11,7 +11,17 @@ class calendar{
         temp.setDate(temp.getDate()+1);
     };
     this.date=this.date.filter(x=>!holiday.includes(x));
+    this.workSchedule={};
+    this.date.forEach((day)=>{
+        this.workSchedule[day]={
+            morning: null,
+            middle:null,
+            night1:null,
+            night2:null
+        };
+    });
     };
+
 }
 
 module.exports=calendar;

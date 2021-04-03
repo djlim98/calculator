@@ -1,7 +1,12 @@
 class people {
-    constructor(people){
+    constructor(people,extraTime){
         this.people=[]
         people.forEach(person => {
+            let totalTime=0;
+            console.log(extraTime,person);
+            if(extraTime[person]!==undefined){
+                totalTime=extraTime[person];
+            }
             this.people.push({
                 name: person,
                 morning:[],
@@ -9,11 +14,12 @@ class people {
                 night1:[],
                 night2:[],
                 total:0,
-                totalTime:0
+                totalTime:totalTime
             });
         });
+        
     }
-    add_time(time, day){
+    add_time(time, day, dayWorker){
         const timeRate={
             morning:1,
             middle:0.5,
@@ -30,9 +36,18 @@ class people {
         this.people.sort((a,b)=>{
             return a[time].length-b[time].length
         });
-        this.people[0][time].push(day);
-        this.people[0].total+=1;
-        this.people[0].totalTime+=timeRate[time];
+        let i=0;
+        let worker=this.people[i];
+        while(dayWorker.includes(worker.name)){
+            i+=1;
+            console.log(worker.name)
+            worker=this.people[i];
+            console.log(worker.name)
+        };
+        worker[time].push(day);
+        worker.total+=1;
+        worker.totalTime+=timeRate[time];
+        return worker.name;
     };
 
 
