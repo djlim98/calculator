@@ -7,6 +7,7 @@
   <meta name="author" content="dongjin lim">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css">
+
   <title>index</title>
 </head>
 <body>
@@ -16,6 +17,15 @@
         </div>
     </header>
     <section>
+      <article>
+
+          구성원 : <input type="text" name="people" value="이승연, 박유경, 김유나, 임동은, 남수정, 임주희, 이세나"><br>
+          년도 : <input type="month" name="year" value="2021-05"><br>
+          휴일 : <input type="text" name="holiday" value='5, 19'><br>
+          이월 : <input type="text" name="extraTime" value="임동은:0.5, 박유경:0.5"><br>
+          <input value="제출" type="button" onclick="sendData();"><br>
+        <textarea name='result' value='' style="width:300px;height:200px;font-size:8px;" disabled></textarea>>
+      </article>
         <article>
             <div id="calendar-wrap">
                 <header>
@@ -248,4 +258,5 @@
 
     </footer>
 </body>
+<script type="text/javascript" src="date.js"></script>
 </html>

@@ -2,6 +2,7 @@ const People=require('../models/people.model');
 const Calendar=require('../models/calendar.model');
 
 exports.calculate=(req,res)=>{
+    console.log(req.body);
     const {people,year, month,holiday, extraTime}=req.body;
     const peopleObj=new People(people,extraTime);
     const calendar=new Calendar(year,month,holiday);
